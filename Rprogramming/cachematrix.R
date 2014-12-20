@@ -2,8 +2,8 @@
 # makeCacheMatrix
 
 
-## makeCacheMatrix is a function used to cache an inverse of a matrix that is caculated by cacheSolve() 
-## The function argument is a matrix (x). makeCacheMatrix creates an special object containting functions
+## makeCacheMatrix is a function used to cache an inverse of a matrix that is calculated by cacheSolve() 
+## The function argument is a matrix (x). makeCacheMatrix creates a special object containing functions
 ## that can be called by cacheSolve():
 ##  - "get" to get the data from the original matrix 
 ##  - "getsolve" to get a cached inverse of that matrix 
@@ -13,21 +13,21 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   
-    inv <- NULL   #  the 'inverse' of the matrix 
+    inv <- NULL                     #  the 'inverse' of the matrix 
   
-    set <- function(y) {          # function to change the stored value
+    set <- function(y) {            # function to change the stored value
             x   <<- y
             inv <<- NULL
   }
   
   ## object methods can be called by cacheSolve()
-  get <- function() { x }         # get the original matrix 
+  get <- function() { x }          # get the original matrix 
   
   setsolve <- function(solve)  { inv <<- solve }
-                                  # calculates the inverse of the matrix using the 
-                                  # function solve() and assign to the "inv" object
+                                   # calculates the inverse of the matrix using the 
+                                   # function solve() and assign to the "inv" object
   
-  getsolve <- function() { inv }  # gets a cached value of the object "inv" 
+  getsolve <- function() { inv }   # gets a cached value of the object "inv" 
 
   ## combine the functions in a list
   list(get = get,
@@ -42,7 +42,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## cacheSolve is a function that can access list of functions stored in makeCacheMatrix to:
 ##  - retrieve the inverse of a matrix from a cache in makeCacheMatrix
 ##  - or, when the fetched object is NULL, it solves the inverse of the matrix 
-##    and than sets this result in the cache of makeCacheMatrix
+##    and then sets this result in the cache of makeCacheMatrix
 ## The function argument is an object assigned by makeCacheMatrix (x)
 
 
